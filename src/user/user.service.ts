@@ -98,6 +98,8 @@ export class UserService {
         const { txHash } = depositFundDto;
         console.log(`\n\n start confirm ${txHash}`);
 
+        await new Promise(resolve => setTimeout(() => resolve(1), 1500))
+
         try {
             // check db to see if tx already exists
             const savedTransaction = await this.transactionService.getBySignature(txHash)
